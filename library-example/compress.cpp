@@ -5,8 +5,8 @@
 
 int main(int argc, char* argv[])
 {
-    std::cout << "argv[1] 是原始文件路径名称\n";
-    std::cout << "argv[2] 是压缩包名称\n";
+    std::cout << "argv[1] is the original file path name \n";
+    std::cout << "argv[2] is compressed package name \n";
     if(argc < 3) return -1;
 
     std::string ifilename = argv[1];
@@ -14,14 +14,14 @@ int main(int argc, char* argv[])
 
     std::ifstream ifs;
     ifs.open(ifilename, std::ios::binary);
-    ifs.seekg(0, std::ios::end);//读写位置走到文件末尾
-    size_t fsize = ifs.tellg();//获取当前读写位置相较于初始位置的偏移量
+    ifs.seekg(0, std::ios::end);//Set the read and write(rw) position to the end of the file
+    size_t fsize = ifs.tellg();//Get the offset of the current rw position compared to the initial position
     ifs.seekg(0, std::ios::beg);
     std::string body;
     body.resize(fsize);
     ifs.read(&body[0], fsize); 
 
-    std::string packed = bundle::pack(bundle::LZIP, body);//以LZIP格式来压缩数据
+    std::string packed = bundle::pack(bundle::LZIP, body);//Compress data in LZIP format
 
     std::ofstream ofs;
     ofs.open(ofilename, std::ios::binary);

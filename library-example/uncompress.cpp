@@ -5,14 +5,14 @@
 
 int main(int argc, char* argv[])
 {
-    if(argc < 3)
+    if (argc < 3)
     {
-        printf("argv[1]是压缩包名称\n");
-	printf("argv[2]是解压后的文件名称\n");
-	return -1;
+        printf("argv[1] is compressed package name \n");
+        printf("argv[2] is uncompressed file name \n");
+        return -1;
     }
-    std::string ifilename = argv[1];//压缩包名
-    std::string ofilename = argv[2];//解压缩后文件名
+    std::string ifilename = argv[1];//compressed package name
+    std::string ofilename = argv[2];//uncompressed file name
 
     std::ifstream ifs;
     ifs.open(ifilename, std::ios::binary);
