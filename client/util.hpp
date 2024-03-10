@@ -55,7 +55,7 @@ namespace cloud
 
         std::string FileName()
         {
-            size_t pos = _filename.find_last_of("\\");//Common writing method(Linux Windows)
+            size_t pos = _filename.find_last_of("/\\");//Common writing method(Linux Windows)
             if(pos == std::string::npos) return _filename;
             return _filename.substr(pos + 1);
         }
