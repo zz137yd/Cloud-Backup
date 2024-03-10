@@ -96,6 +96,15 @@ namespace cloud
             return true;
         }
 
+        /*bool IU(const BackupInfo& info)
+        {
+            pthread_rwlock_wrlock(&_rwlock);
+            _table[info.url] = info;
+            pthread_rwlock_unlock(&_rwlock);
+            Storage();
+            return true;
+        }*/
+
         bool GetOneByKey(const std::string& key, std::string* val)
         {
             auto it = _table.find(key);
