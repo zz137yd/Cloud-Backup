@@ -30,7 +30,7 @@
 //Deserialization
 int main()
 {
-    std::string str = R"({"Name":"小黑", "Age":19, "Score":[58.5, 66, 35.5]})";
+    std::string str = R"({"Name":"Paul", "Age":19, "Score":[58.5, 66, 35.5]})";
     Json::Value root;
     Json::CharReaderBuilder crb;
     std::unique_ptr<Json::CharReader> cr(crb.newCharReader());
