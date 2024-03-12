@@ -1,6 +1,6 @@
 .PHONY:cloud
-cloud:cloud.cpp bundle.cpp
-	g++ -g $^ -o $@ -lpthread -lstdc++fs -ljsoncpp -std=c++11
+cloud:cloud.cpp
+	g++ -g $^ -o $@ -L./lib -lpthread -lstdc++fs -ljsoncpp -lbundle -std=c++11
 .PHONY:clean
 clean:
 	rm -f cloud

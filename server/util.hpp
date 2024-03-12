@@ -59,6 +59,7 @@ namespace cloud
         {
             size_t pos = _filename.find_last_of("/\\");//Common writing method(Linux Windows)
             if(pos == std::string::npos) return _filename;
+            //return fs::path(_filename).filename().string() Get the file name with the path removed
             return _filename.substr(pos + 1);
         }
 
