@@ -2,9 +2,9 @@
 ZYD's project
 
 I've tried it before and it was uploaded successfully, but couldn't be displayed  
-Now I'll put step here.For faster and no-warning compilation  
+Now I'll put step here.In order to allow the server to complete compilation faster  
   
-<br>g++ -c bundle.cpp -o bundle.o -std=c++11&nbsp;&nbsp;&nbsp;&nbsp;//C++14 can be compiled, but C++17 can't  
+<br>g++ -c bundle.cpp -o bundle.o -std=c++11&nbsp;&nbsp;&nbsp;&nbsp;//Can be compiled with C++14, but not C++17  
   
 ar -cr libbundle.a bundle.o  
 
@@ -13,3 +13,9 @@ rm -rf bundle.o&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
 mkdir lib  
 
 mv libbundle.a lib  
+
+<br>makefile change:  
+<br>cloud:cloud.cpp bundle.cpp  
+&nbsp;&nbsp;&nbsp;&nbsp;g++ -g $^ -o $@ -lpthread -lstdc++fs -ljsoncpp -std=c++11
+<br>cloud:cloud.cpp  
+&nbsp;&nbsp;&nbsp;&nbsp;g++ -g $^ -o $@ -L./lib -lpthread -lstdc++fs -ljsoncpp -lbundle -std=c++11  
