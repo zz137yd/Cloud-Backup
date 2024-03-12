@@ -1,8 +1,9 @@
 # Cloud-Backup
 ZYD's project
 
-I've tried it before and it was uploaded successfully, but couldn't be displayed  
-Now I'll put step here.In order to allow the server to complete compilation faster  
+I've tried it before and it was uploaded successfully, but couldn't be displayed.  
+I implemented the client on VS2019. You can add header <windows.h> under #include "cloud.hpp" or not.  
+Now I'll put step here.In order to allow the server to complete compilation faster.  
 
 <br>********************************************************************************************
 
