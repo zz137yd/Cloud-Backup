@@ -15,8 +15,8 @@ rm -rf bundle.o&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
 mkdir lib  
 
 mv libbundle.a lib 
- 
-<br><br>********************************************************************************************
+
+<br>********************************************************************************************
 
 <br>makefile change:  
 <br>cloud:cloud.cpp bundle.cpp  
