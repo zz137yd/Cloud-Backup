@@ -7,7 +7,7 @@ Now I'll put step here.In order to allow the server to complete compilation fast
 
 <br>********************************************************************************************
 
-<br>g++ -c bundle.cpp -o bundle.o -std=c++11(&nbsp;)*4//Can be compiled with C++14, but not C++17  
+<br>g++ -c bundle.cpp -o bundle.o -std=c++11&nbsp;&nbsp;&nbsp;&nbsp;//Can be compiled with C++14, but not C++17  
   
 ar -cr libbundle.a bundle.o  
 
