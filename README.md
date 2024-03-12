@@ -21,6 +21,6 @@ mv libbundle.a lib
 
 <br>makefile change:  
 <br>cloud:cloud.cpp bundle.cpp  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g++ -g $^ -o $@ -lpthread -lstdc++fs -ljsoncpp -std=c++11
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>g++ -g $^ -o $@ -lpthread -lstdc++fs -ljsoncpp -std=c++11</code>
 <br>cloud:cloud.cpp  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g++ -g $^ -o $@ -L./lib -lpthread -lstdc++fs -ljsoncpp -lbundle -std=c++11  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>g++ -g $^ -o $@ -L./lib -lpthread -lstdc++fs -ljsoncpp -lbundle -std=c++11</code>  
