@@ -27,7 +27,7 @@ namespace cloud
             struct stat st;
             if(stat(_filename.c_str(), &st) < 0)
             {
-                std::cout << "Failed to get file attributes \n";
+                std::cout << "Failed to get file size \n";
                 return -1;
             }
             return st.st_size;
@@ -38,7 +38,7 @@ namespace cloud
             struct stat st;
             if(stat(_filename.c_str(), &st) < 0)
             {
-                std::cout << "Failed to get file attributes \n";
+                std::cout << "Failed to get file last modified time \n";
                 return -1;
             }
             return st.st_mtime;
@@ -49,7 +49,7 @@ namespace cloud
             struct stat st;
             if(stat(_filename.c_str(), &st) < 0)
             {
-                std::cout << "Failed to get file attributes \n";
+                std::cout << "Failed to get file Last access time \n";
                 return -1;
             }
             return st.st_atime;
