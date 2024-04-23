@@ -74,14 +74,14 @@ namespace cloud
             return true;
         }
 
-        /*bool IU(const BackupInfo& info)
+        bool IU(const BackupInfo& info)     //Insert and Update
         {
             pthread_rwlock_wrlock(&_rwlock);
             _table[info.url] = info;
             pthread_rwlock_unlock(&_rwlock);
             Storage();
             return true;
-        }*/
+        }
 
         bool GetOneByUrl(const std::string& url, BackupInfo* info)//Get data based on url
         {
