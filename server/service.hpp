@@ -137,6 +137,7 @@ namespace cloud
                 //In fact, the httplib library implements breakpoint resume transmission
                 //The user only needs to read the data into the body
                 //The library will retrieve the specified range of data from the body according to the request range, and respond
+
                 //std::string range = req.get_header_val("Range"); Range: bytes = start-end, Parse this to get the size of the head and tail and get the range.
 
                 fu.GetContent(&rsp.body);
@@ -145,7 +146,9 @@ namespace cloud
                 rsp.set_header("Content-Type", "application/octet-stream");
 
                 //After finishing, users need to set this field, but the library has already implemented it, so it is not needed.
+
                 //rsp.set_header("Content-Range", "bytes start-end/fsize");
+                
                 rsp.status = 206;//The response to the interval request is 206
             }*/
         }
