@@ -68,7 +68,7 @@ namespace cloud
         bool Update(const BackupInfo& info)
         {
             pthread_rwlock_wrlock(&_rwlock);
-            _table[info.url] = info;//It can be overwritten and written because of hash table
+            _table[info.url] = info;        //It can be overwritten and written because of hash table
             pthread_rwlock_unlock(&_rwlock);
             Storage();
             return true;
@@ -86,7 +86,7 @@ namespace cloud
         bool GetOneByUrl(const std::string& url, BackupInfo* info)//Get data based on url
         {
             pthread_rwlock_wrlock(&_rwlock);
-            //url是key值
+            //url is key
             auto it = _table.find(url);
             if(it == _table.end())
             {
@@ -147,7 +147,7 @@ namespace cloud
                 item["pack_path"] = arry[i].pack_path;
                 item["url"] = arry[i].url;
                 root.append(item);//Add array elements
-            }       
+            }   
             //3、Serialize Json::Value
             std::string body;
 			JsonUtil::Serialize(root, &body);

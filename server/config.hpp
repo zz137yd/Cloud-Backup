@@ -6,7 +6,7 @@
 
 namespace cloud
 {
-    #define CONFIG_FILE "./cloud.conf"//Configuration file
+    #define CONFIG_FILE "./cloud.conf"  //Configuration file
 
     class Config
     {

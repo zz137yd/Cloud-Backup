@@ -40,11 +40,11 @@ namespace cloud
         }
 
         //Static need to call static
-        static std::string TimetoStr(time_t t)//Convert timestamp to string
+        /*static std::string TimetoStr(time_t t)//Convert timestamp to string
         {
             std::string tmp = std::ctime(&t);
             return tmp;
-        }
+        }*/
 
         static void ListShow(const httplib::Request& req, httplib::Response& rsp)//Display page fetch request
         {
@@ -60,7 +60,8 @@ namespace cloud
                 ss << "<tr>";
                 std::string filename = Util(a.real_path).FileName();
                 ss << "<td><a href='" << a.url << "'>" << filename << "</a></td>";
-                ss << "<td align='right'>" << TimetoStr(a.mtime) << "</td>";
+                //ss << "<td align='right'>" << TimetoStr(a.mtime) << "</td>";
+                ss << "<td align='right'>" << std::ctime(&a.mtime) << "</td>";
                 ss << "<td align='right'>" << a.fsize / 1024 << "k</td>";
                 ss << "</tr>";
             }
@@ -113,7 +114,17 @@ namespace cloud
             //6、Read the file data and put it into rsp.body
             //7、Set response header fields: ETag, Accept-Ranages: bytes
             Util fu(info.real_path);
-            if (!retrans)
+
+            fu.GetContent(&rsp.body);
+            rsp.set_header("Accept-Ranges", "bytes");
+            rsp.set_header("ETag", GetETag(info));
+            rsp.set_header("Content-Type", "application/octet-stream");
+            if (!retrans) rsp.status = 200;
+            else rsp.status = 206;
+
+
+
+            /*if (!retrans)
             {
                 fu.GetContent(&rsp.body);
                 rsp.set_header("Accept-Ranges", "bytes");
@@ -127,14 +138,16 @@ namespace cloud
                 //The user only needs to read the data into the body
                 //The library will retrieve the specified range of data from the body according to the request range, and respond
                 //std::string range = req.get_header_val("Range"); Range: bytes = start-end, Parse this to get the size of the head and tail and get the range.
+
                 fu.GetContent(&rsp.body);
                 rsp.set_header("Accept-Ranges", "bytes");
                 rsp.set_header("ETag", GetETag(info));
                 rsp.set_header("Content-Type", "application/octet-stream");
+
                 //After finishing, users need to set this field, but the library has already implemented it, so it is not needed.
                 //rsp.set_header("Content-Range", "bytes start-end/fsize");
                 rsp.status = 206;//The response to the interval request is 206
-            }
+            }*/
         }
     public:
         Service()

@@ -139,7 +139,7 @@ namespace cloud
             Util fu(packname);
             if(fu.SetContent(packed) == false)
             {
-                std::cout << "compress write packed data failed!\n";
+                std::cout << "Failed to write compressed data \n";
                 return false;
             }
             return true;
